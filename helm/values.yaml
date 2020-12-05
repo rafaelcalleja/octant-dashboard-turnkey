@@ -50,7 +50,52 @@ serviceAccount:
 
 clusterRole:
   # Override the entire set of cluster roles, if not specified a default set of read-only-everything rules will be created
-  rules: ~
+  rules:
+    - apiGroups:
+      - '*'
+      resources:
+      - configmaps
+      - endpoints
+      - events
+      - namespaces
+      - nodes
+      - nodes/status
+      - persistentvolumeclaims
+      - persistentvolumeclaims/status
+      - persistentvolumes
+      - persistentvolumes/status
+      - pods
+      - pods/log
+      - pods/status
+      - replicationcontrollers
+      - replicationcontrollers/status
+      - resourcequotas
+      - resourcequotas/status
+      - services
+      - services/status
+      - daemonsets
+      - daemonsets/status
+      - deployments
+      - deployments/status
+      - replicasets
+      - replicasets/status
+      - statefulsets
+      - statefulsets/status
+      - jobs
+      - jobs/status
+      - cronjobs
+      - cronjobs/status
+      - ingresses
+      - ingresses/status
+      - replicasets
+      - replicasets/status
+      - storageclasses
+      - volumeattachments
+      - volumeattachments/status
+      verbs:
+      - get
+      - list
+      - watch
   # Add additional rules to the default read-only-everything, this is ignored if clusterRole.rules is provided.
   additionalRules: ~
 
